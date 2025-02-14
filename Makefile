@@ -16,3 +16,16 @@ dist: meson
 .PHONY: install
 install:
 	DESTDIR=$(DESTDIR) ninja -C build install
+
+.apt-install: apt_deps.txt
+	sudo apt update
+	cat apt_deps.txt | xargs sudo apt install -y
+	touch .apt-install
+
+.docker-build: Dockerfile
+	docker build . -t lxcfs-debug
+	touch .docker-build
+
+.PHONY: test
+test: all .apt-install .docker-build test.sh
+	./test.sh

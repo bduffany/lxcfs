@@ -1,0 +1,7 @@
+cmake
+meson
+help2man
+libfuse-dev
+libfuse3-dev
+python3-jinja2
+pkg-config

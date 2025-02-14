@@ -20,3 +20,7 @@ lxcfs-*.tar.gz
 .vscode
 src/cgroups/.dirstamp
 .idea/
+
+/build
+/.apt-install
+/.docker-build
